@@ -13,14 +13,14 @@ loadProducts('https://fakestoreapi.com/products');
 
 // show all product in UI
 const showProducts = (products) => {
-   
-   setInnerText('total_products', products.length);
+//    setInnerText('total_products', products.length);
 
    document.getElementById("all-products").innerHTML = "";
 
    const allProducts = products.slice(0, 10).map((pd) => pd);
+   console.log(allProducts);
    for (const product of allProducts) {
-      const image = product.images;
+      const image = product.image;
       const div = document.createElement('div');
       div.classList.add('product');
       div.innerHTML = `<div class="single-product">
@@ -29,7 +29,7 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
+      <h2>Price: $ ${product.prishowProductDetailsce}</h2>
 
       <button onclick="showProductDetails(${product.id})" id="details-btn"    data-bs-toggle="modal"
       data-bs-target="#exampleModal" class="btn btn-outline-secondary mb-2 rounded-1 mt-1">Details</button>
@@ -45,7 +45,6 @@ let count = 0;
 const addToCart = (id, price) => {
    count = count + 1;
    updatePrice('price', value);
-
    updateTaxAndCharge();
    document.getElementById('total-Products').innerText = count;
 };
@@ -57,10 +56,15 @@ const showProductDetails = (product_id) => {
       .then((data) => showProductDetailsInModal(data));
 };
 
+// set innerText function
+const setInnerText = (id, value) => {
+    document.getElementById(id).innerText = value;
+ };
+
 const showProductDetailsInModal = (product_details) => {
    console.log(product_details);
    setInnerText('exampleModalLabel', product_details.title);
-   setInnerText('product_id', product_details.id);
+   setInnerText('productId', product_details.id);
    setInnerText('modal_body', product_details.description);
    setInnerText('rating', product_details.rating.rate);
 };
@@ -79,10 +83,6 @@ const updatePrice = (id, value) => {
    document.getElementById(id).innerText = Math.round(total);
 };
 
-// set innerText function
-const setInnerText = (id, value) => {
-   document.getElementById(id).innerText = Math.round(value);
-};
 
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
