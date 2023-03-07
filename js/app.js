@@ -29,7 +29,7 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.prishowProductDetailsce}</h2>
+      <h2>Price: $ ${product.price}</h2>
 
       <button onclick="showProductDetails(${product.id})" id="details-btn"    data-bs-toggle="modal"
       data-bs-target="#exampleModal" class="btn btn-outline-secondary mb-2 rounded-1 mt-1">Details</button>
@@ -40,14 +40,7 @@ const showProducts = (products) => {
    }
 };
 
-let count = 0;
 
-const addToCart = (id, price) => {
-   count = count + 1;
-   updatePrice('price', value);
-   updateTaxAndCharge();
-   document.getElementById('total-Products').innerText = count;
-};
 
 const showProductDetails = (product_id) => {
    console.log(product_id);
