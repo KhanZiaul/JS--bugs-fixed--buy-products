@@ -40,7 +40,14 @@ const showProducts = (products) => {
    }
 };
 
+let count = 0;
 
+const addToCart = (id, price) => {
+   count = count + 1;
+   updatePrice('price',price);
+   updateTaxAndCharge();
+   document.getElementById('total-Products').innerText = count;
+};
 
 const showProductDetails = (product_id) => {
    console.log(product_id);
