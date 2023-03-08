@@ -17,7 +17,7 @@ const showProducts = (products) => {
 
    document.getElementById("all-products").innerHTML = "";
 
-   const allProducts = products.slice(0, 10).map((pd) => pd);
+   const allProducts = products.map((pd) => pd);
    console.log(allProducts);
    for (const product of allProducts) {
       const image = product.image;
