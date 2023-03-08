@@ -58,7 +58,7 @@ const showProductDetails = (product_id) => {
 
 // set innerText function
 const setInnerText = (id, value) => {
-    document.getElementById(id).innerText = value;
+    document.getElementById(id).innerText = value.toFixed(2);
  };
 
 const showProductDetailsInModal = (product_details) => {
@@ -78,9 +78,9 @@ const getInputValue = (id) => {
 // main price update function
 const updatePrice = (id, value) => {
    const convertedOldPrice = getInputValue(id);
-   const convertPrice = parseInt(value);
+   const convertPrice = parseFloat(value);
    const total = convertedOldPrice + convertPrice;
-   document.getElementById(id).innerText = Math.round(total);
+   document.getElementById(id).innerText = total.toFixed(2);
 };
 
 
