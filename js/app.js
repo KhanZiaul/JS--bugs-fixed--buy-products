@@ -17,6 +17,8 @@ const showProducts = (products) => {
 
    document.getElementById("all-products").innerHTML = "";
 
+   document.getElementById('total_products').innerText = products.length;
+
    const allProducts = products.map((pd) => pd);
    console.log(allProducts);
    for (const product of allProducts) {
@@ -113,10 +115,10 @@ const updateTotal = () => {
 // search by category
 document.getElementById("search-btn").addEventListener("click", function () {
    const inputField = document.getElementById("input-value").value;
-   const searchedProduct = arr[0].find((p) =>
-     p.category.startsWith(`${inputField}`)
+   const searchedProduct = arr[0].filter((p) =>
+     p.title.toLowerCase().includes(`${inputField.toLowerCase()}`)
    );
+
+   console.log(searchedProduct);
    showProducts(searchedProduct);
  });
-
-
