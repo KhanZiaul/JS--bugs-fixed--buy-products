@@ -20,7 +20,6 @@ const showProducts = (products) => {
    document.getElementById('total_products').innerText = products.length;
 
    const allProducts = products.map((pd) => pd);
-   console.log(allProducts);
    for (const product of allProducts) {
       const image = product.image;
       const div = document.createElement('div');
@@ -65,7 +64,6 @@ const setInnerText = (id, value) => {
  };
 
 const showProductDetailsInModal = (product_details) => {
-   console.log(product_details);
    setInnerText('exampleModalLabel', product_details.title);
    setInnerText('productId', product_details.id);
    setInnerText('modal_body', product_details.description);
@@ -120,6 +118,5 @@ document.getElementById("search-btn").addEventListener("click", function () {
      p.title.toLowerCase().includes(`${inputField.toLowerCase()}`)
    );
 
-   console.log(searchedProduct);
    showProducts(searchedProduct);
  });
